@@ -11,6 +11,7 @@ import UIKit
 class ViewController: UIViewController {
 
     @IBOutlet weak var messageLabel: UILabel!
+    @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var enterNameTextField: UITextField!
     @IBOutlet weak var enterMessageTextField: UITextField!
     @IBOutlet weak var sendMailButon: UIButton!
@@ -26,12 +27,23 @@ class ViewController: UIViewController {
     }
 
     @IBAction func sendMailButtonPressed(sender: UIButton) {
-        messageLabel.hidden = false
+        //update label contents
+        nameLabel.text = enterNameTextField.text
+        nameLabel.textColor = UIColor.blueColor()
+        nameLabel.hidden = false
+        
         messageLabel.text = enterMessageTextField.text
         messageLabel.textColor = UIColor.redColor()
+        messageLabel.hidden = false
+        
+        //textfield contents are no longer needed
+        enterNameTextField.text = ""
+        enterNameTextField.resignFirstResponder()
         
         enterMessageTextField.text = ""
-        enterMessageTextField.resignFirstResponder()//makes keyboard vanish
+        enterMessageTextField.resignFirstResponder()
+        
+        
         sendMailButon.setTitle("Mail Sent", forState: UIControlState.Normal)
     }
     
