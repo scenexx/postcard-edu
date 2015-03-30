@@ -29,8 +29,9 @@ class ViewController: UIViewController {
         messageLabel.hidden = false
         messageLabel.text = enterMessageTextField.text
         messageLabel.textColor = UIColor.redColor()
+        
         enterMessageTextField.text = ""
-        enterMessageTextField.resignFirstResponder()
+        enterMessageTextField.resignFirstResponder()//makes keyboard vanish
         sendMailButon.setTitle("Mail Sent", forState: UIControlState.Normal)
     }
     
